@@ -9,31 +9,7 @@ id: "custom"
 
 <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 
-<!--
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-<table>
-  <td></td>
-  <td></td>
-</table>
-
--->
-
-# Chapter One
+# Chapter 1.1
 
 ## Statements / sentencias
 
@@ -55,7 +31,7 @@ int main()
 ```
 Las sentencias se ejecutan secuencialmente, muestra "Hello world!" por pantalla y devuelve valor '0' al sistema significa que "todo fue okay".
 
-# Chapter Two
+# Chapter 1.2
 
 ## Comentarios
 
@@ -86,3 +62,47 @@ Buena práctica: escribir comentarios cómo si estuviésemos explicando a alguie
 - Dentro de librería, programa o función, usar comentarios para describir **cómo**.
 
 - Nivel de sentencia, usar comentarios para describir **por qué**.
+
+# Chapter 1.3
+
+## Data
+
+Programas están compuestos por instrucciones que manipulan datos para producir un resultado deseado.
+
+Los datos pueden adquirirse desde **fichero**, **base de datos**, **red**, **user input** (entrada de usuario), **source code** (en código fuente).
+
+### Values
+
+Sean números: 1, caracteres 'a', texto "hola".
+
+Se denominan **literals** sí están escritos directamente en código fuente.
+
+### Objects and variables
+
+En C++ el acceso directo a memoria está desaprobado, por tanto accedemos a memoria indirectamente con un **objeto**. Éste representa una región del almacenamiento que puede contener un valor (value).
+Un objeto con un nombre representa una **variable**.
+
+Asignación o **allocation**, es la reserva de almacenamiento de un objeto, en runtime (ejecución de un programa cargado en memoria).
+
+```javascript {.line-numbers}
+// Definición de variable
+int x;
+
+// Declaración de variable
+x = 2;
+```
+
+Definiendo múltiples variables:
+
+```javascript {.line-numbers}
+int a, int b; // wrong (compiler error)
+
+int a, b; // correct
+
+// Buena práctica: definir cada variable en una sentencia diferente, con comentarios.
+```
+
+Resumen:
+- Usar objetos para acceder a memoria.
+- Objeto con nombre es una variable.
+- Cada variable tiene **identificador** (nombre), **tipo** (determinar cómo el valor en memoria debe interpretarse) y **valor**.
