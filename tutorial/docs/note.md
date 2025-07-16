@@ -111,11 +111,13 @@ Resumen:
 
 ## Asignación 
 
-Cambia el valor de una variable, con operador de asignación '=' (de izq. a derecha).
+Cambia el valor de una variable, con operador de asignación '=' (de derecha a izq.).
 
 ## Inicialización
 
 Dar valor inicial al objeto, su sintaxis es llamada **initializer**.
+
+Recomendación: Inicializar variables al crearlas.
 
 ### Formas de inicialización en C++
 
@@ -131,11 +133,21 @@ int d{7};   // direct-list-initialization (initial value in braces)
 int e{};      // value-initialization (empty braces)
 ```
 
-**Copy-initialization**: no se recomienda en C++ moderno. Usado cuando los valores son copiados implicitamente (pasar argumentos a una función por valor, devolver de una función por valor u atrapar excepciones por valor).
+**Copy-initialization**: no se recomienda en C++ moderno. Usado cuando los valores son copiados implícitamente (pasar argumentos a una función por valor, devolver de una función por valor u atrapar excepciones por valor).
 
 **Direct-initialization**: tampoco en C++ moderno. Usado para castings de valores explícitos a otro tipo, por ejemplo *static_cast*.
 
 **List-initialization**: forma moderna de inicializar objetos en C++. List-initialization disallows "narrowing conversions", el compilador produce diagnóstico si intentas list-inicializar una variable con valor que no puede almacenar de forma segura.
 
-**Value-initialization**: con llaves '{}' vacías, en la mayoria de casos inicializará la variable a 0 o cercano a él (se llama zero-initialization cuando esto ocurre también).
+**Value-initialization**: con llaves '{}' vacías, en la mayoría de casos inicializará la variable a 0 o cercano a él (se llama zero-initialization cuando esto ocurre también).
 Para tipos de clase, se inicializa el objeto a un valor por defecto predefinido por la clase.
+
+## Instanciación
+
+Variable que ha sido creada e inicializada define una **instancia**.
+
+Atributo \[[maybe_unused]] permite establecer variables que no se usen en el programa, evita que el compilador no se 'queje' con errores o warnings debido a esto.
+
+```javascript {.line-numbers}
+[[maybe_unused]] double pi { 3.14159 };  // Don't complain if pi is unused
+```
