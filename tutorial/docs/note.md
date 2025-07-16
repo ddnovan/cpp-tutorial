@@ -151,3 +151,33 @@ Atributo \[[maybe_unused]] permite establecer variables que no se usen en el pro
 ```javascript {.line-numbers}
 [[maybe_unused]] double pi { 3.14159 };  // Don't complain if pi is unused
 ```
+
+# Chapter 1.5
+
+## Librería input/output
+
+Incluir el encabezado *iostream* en la parte superior de cada fichero de código donde se utiliza.
+
+```javascript {.line-numbers}
+#include <iostream>
+```
+
+### std::cout
+
+Variable predefinida en la librería, enviar datos a la consola para mostrar como texto.
+
+Usar con operador de inserción '<<'.
+
+### std::endl
+
+Usar siempre al terminar un std::cout, incluso al final.
+
+Es a veces poco eficiente, pues muestra un newline y vacía el buffer.
+
+Para no tener que vaciar el buffer, usar **\n** .
+
+Si se usa sólo, indicar que es un caracter con comillas simples: **'\n'**.
+
+### std::cin
+
+Variable predefinida en la librería *iostream*, lee desde teclado, con operador de extracción '>>'
