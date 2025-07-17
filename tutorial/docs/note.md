@@ -180,4 +180,19 @@ Si se usa sólo, indicar que es un caracter con comillas simples: **'\n'**.
 
 ### std::cin
 
-Variable predefinida en la librería *iostream*, lee desde teclado, con operador de extracción '>>'
+Variable predefinida en la librería *iostream*, lee desde teclado, con operador de extracción '>>' nos permite poner en una variable el valor de entrada.
+
+Concatenar operadores de extracción de la siguiente forma, permite realizar más de un input de una sola línea:
+
+```javascript {.line-numbers}
+std::cin >> x >> y;
+```
+
+Separar sí o sí en la entrada por espacios, tabs o newlines.
+
+Y como std::endl, std::cin usa el buffer.
+
+Por tanto, por cada extracción realizada de caracteres del buffer, se comprueba si es del tipo de la variable dónde se va a almacenar:
+
+- **Si lo es**, entonces la variable almacena el valor. También se aplica si empieza por números y luego hay letras (dejando estas últimas).
+- **Si no lo es**, el valor almacenado es distinto, sea 0 para caracteres (por int), número redondeado (para fraccionarios).
