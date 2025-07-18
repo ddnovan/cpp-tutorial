@@ -196,3 +196,32 @@ Por tanto, por cada extracción realizada de caracteres del buffer, se comprueba
 
 - **Si lo es**, entonces la variable almacena el valor. También se aplica si empieza por números y luego hay letras (dejando estas últimas).
 - **Si no lo es**, el valor almacenado es distinto, sea 0 para caracteres (por int), número redondeado (para fraccionarios).
+
+# Chapter 1.6
+
+## Uninitialized variables
+
+Variable sin valor conocido asignado (a partir de inicialización o asignación). Puede contener cualquier valor (basura) en la dirección de memoria especificada.
+
+## Undefined behavior
+
+Resultado de ejecutar código cuyo comportamiento no está bien definido por C++.
+
+- Un caso (entre otros) en el que se produce: usar el valor de una variable no inicializada.
+
+## Implementation-defined behavior
+
+Una **implementación** es un compilador específico y su librería estándar asociada, que definen el *comportamiento* eficiente a una plataforma dada, por ejemplo:
+
+```javascript {.line-numbers}
+// print how many bytes of memory an int value takes
+std::cout << sizeof(int) << '\n';
+```
+
+Produce valor *4* y en otras produce *2*.
+
+Este comportamiento debe ser documentado y consistente para una implementación dada.
+
+## Unspecified behavior
+
+Similar al *Implementation-defined behavior* en dónde el comportamiento es definido por la *implementación*, pero la implementación hace que el comportamiento se vuelva inpredecible y variable en base a ejecuciones.
