@@ -225,3 +225,43 @@ Este comportamiento debe ser documentado y consistente para una implementación 
 ## Unspecified behavior
 
 Similar al *Implementation-defined behavior* en dónde el comportamiento es definido por la *implementación*, pero la implementación hace que el comportamiento se vuelva inpredecible y variable en base a ejecuciones.
+
+# Chapter 1.7
+
+## Keywords o palabras clave
+
+Palabras reservadas con significado especial en el lenguaje.
+
+## Reglas para nombrar identifiers
+
+- No puede ser una keyword, están reservadas.
+- Sólo componerse con **letras** (minúsculas o mayúsculas), **números**, y el guión bajo '**_**'.
+- No puede empezar por números.
+- C++ es case sensitive, distingue entre variables, ej: *nvalue* y *nValue*.
+
+### Buenas prácticas:
+
+1. Empezar con letra minúscula, para acrónimos o única palabra.
+
+```javascript {.line-numbers}
+int value; // conventional
+```
+
+2. Usar snake_case o camelCase (intercapped), para variables de más de una palabra.
+
+```javascript {.line-numbers}
+int my_variable_name;   // conventional (separated by underscores/snake_case)
+int my_function_name(); // conventional (separated by underscores/snake_case)
+
+int myVariableName;     // conventional (intercapped/camelCase)
+int myFunctionName();   // conventional (intercapped/camelCase)
+```
+
+3. Al trabajar en un programa que ya existe, usar las convenciones de ese programa (aunque no apliquen las buenas prácticas anteriores).
+
+4. La longitud del identificador debe ser proporcional a cómo de específico y accesible es:
+4.1 Nombre corto para identifier que exista para pocas sentencias.
+4.2 Nombre largo para identifier accesible desde cualquier parte (se puede beneficiar).
+4.3 Nombre largo para identifier que represente un valor específico. (tamaño en milímetros, tiempo en segundos, tipo de data, etc).
+
+5. Introducir un comentario para describir para qué la variable va a ser usada (ahorrar nombre largo).
