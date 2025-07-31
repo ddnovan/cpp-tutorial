@@ -265,3 +265,47 @@ int myFunctionName();   // conventional (intercapped/camelCase)
 4.3 Nombre largo para identifier que represente un valor específico. (tamaño en milímetros, tiempo en segundos, tipo de data, etc).
 
 5. Introducir un comentario para describir para qué la variable va a ser usada (ahorrar nombre largo).
+
+# Chapter 1.8
+
+Whitespace se refiere a caracteres usados para formatear, sean **espacios**, **tabs** o **newlines**.
+
+Elementos como variables, funciones, etc, deben contener whitespaces para que el compilador pueda determinarlos.
+
+## Quoted text
+
+Se concatena el texto separado por sólo whitespaces.
+
+```javascript {.line-numbers}
+std::cout << "Hello
+     world!"; // Not allowed!
+std::cout << "Hello "
+     "world!"; //prints "Hello world"
+```
+
+Identar el código dentro de dos llaves **{ }**.
+
+Las líneas deben tener como máximo **80 caracteres**.
+
+Por cada línea de continuación (cuando una línea es muy larga y se debe separar), se debe identar una vez más.
+
+Operadores como '**<<**' ó '**+**' deben escribirse al principio de la siguiente línea, no al final.
+
+Alinear código usando whitespace, sean variables o comentarios para mejor lectura.
+
+```javascript {.line-numbers}
+cost         = 57;
+pricePerItem = 24;
+
+std::cout << "Hello world!\n";                  // cout lives in the iostream library
+std::cout << "It is very nice to meet you!\n";  // these comments are easier to read
+```
+
+## Guías de estilo
+
+Documentos con convenciones para programar, formateo y mejores prácticas. Por ejemplo:
+
+- [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+- [Google](https://google.github.io/styleguide/cppguide.html)
+- [LLVM](https://llvm.org/docs/CodingStandards.html)
+- [GCC/GNU](https://gcc.gnu.org/codingconventions.html)
