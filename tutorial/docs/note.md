@@ -309,3 +309,42 @@ Documentos con convenciones para programar, formateo y mejores prácticas. Por e
 - [Google](https://google.github.io/styleguide/cppguide.html)
 - [LLVM](https://llvm.org/docs/CodingStandards.html)
 - [GCC/GNU](https://gcc.gnu.org/codingconventions.html)
+
+# Chapter 1.9
+
+**Literal constante** es una valor fijo insertado directamente en código fuente.
+
+Ejemplo: '"Hello world"' y '5' lo son.
+
+```javascript {.line-numbers}
+std::cout << "Hello world!";
+int x { 5 };
+```
+
+Su valor es fijo y **NO** se puede cambiar.
+
+## Operadores
+
+Una operación supone más de un *operando* con un *operador* para producir un *output value*.
+
+Sea 2 + 3 = 5, 2 y 3 operandos y '+' operador.
+
+- Operadores aritméticos: + - * /
+- Operador de asignación: =
+- Otros operadores: << >> ==
+- Operadores como keywords: new, delete, throw
+
+El número de operandos que toma un operador se denomina *arity*.
+
+- Unary operators como: algo-
+- Binary operators como operadores de asignación, aritméticos u otros.
+- Ternary operators como el operador condicional (?:\).
+-Nullary operators con cero operandos como: throw.
+
+Se pueden concatenar operadores, ej: 2 * 3 + 4. **¡Con orden de prioridad!**
+
+### Valores de retorno
+
+Realizar -5 produce -5, realizar 2 + 3, produce 5.
+
+Hay operadores como delete y throw que no devuelven nada.
