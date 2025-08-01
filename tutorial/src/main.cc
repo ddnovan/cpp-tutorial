@@ -19,10 +19,7 @@ int main()
 	std::cin >> y; // we're immediately replacing that value so an explicit 0 would be meaningless
 	std::cout << y << std::endl;
 	return 0;
-
-	*/
 	// Chapter 1.5:
-	
 	// Value-initialization, valores ceros en x,y,z.
     int x{}, y{}, z{};
 	std::cout << "Value-initialization, everything with value zero: " << "x: "
@@ -31,6 +28,16 @@ int main()
 	std::cout << "Enter three numbers: ";
     std::cin >> x >> y >> z;
     std::cout << "You entered " << x << ", " << y << ", " << "and " << z << "." << '\n';
+
+	*/
+
+	// Chapter 1.11
+	// Make a program that multiply by 2 and 3 the user input
+	std::cout << "Enter an integer: ";
+	int num {};
+	std::cin >> num;
+	std::cout << "Double " << num << " is: " << num * 2 << '\n';
+	std::cout << "Triple " << num << " is: " << num * 3 << '\n';
 
     return 0;
 }
