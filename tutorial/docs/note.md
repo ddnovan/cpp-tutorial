@@ -348,3 +348,53 @@ Se pueden concatenar operadores, ej: 2 * 3 + 4. **¡Con orden de prioridad!**
 Realizar -5 produce -5, realizar 2 + 3, produce 5.
 
 Hay operadores como delete y throw que no devuelven nada.
+
+# Chapter 1.10
+
+Una **expresión** es una sentencia no vacía de literales, variables, operadores y llamadas a función que calculan un valor.
+
+Ejecutar una expresión se llama **evaluación** y se obtiene un **resultado** o **valor de retorno**.
+
+```javascript {.line-numbers}
+int a{ 2 };             // initialize variable a with literal value 2
+int b{ 2 + 3 };         // initialize variable b with computed value 5
+int c{ (2 * 3) + 4 };   // initialize variable c with computed value 10
+int d{ b };             // initialize variable d with variable value 5
+int e{ five() };        // initialize variable e with function return value 5
+```
+Se evalua la expresión, evaluando cada término interior hasta que sólo quede un valor.
+
+Se indican en la sentencia así:
+
+int x { 2 + 3 }
+--> type identifier { expression }
+
+## Expression statements
+
+Una expresión seguida de un ';', que al ejecutarse la expresión se evaluará.
+
+Los valores de retorno de operadores son obviados (x = 5).
+
+
+## Types of expressions
+
+### Subexpression
+
+Expresión como operando, ejemplo:
+
+```javascript {.line-numbers}
+x = 4 + 5 // Subexpresiones son 'x' y '4+5'; de 4+5 son '4' y '5'...
+```
+
+### Full expression
+
+Expresión que no es subexpresión.
+
+### Compound expression
+
+Expresión que contiene dos o más usos de operadores, ejemplo:
+
+```javascript {.line-numbers}
+x = 4 + 5 // Es una compound expression, pues contiene dos usos de operadores (sean = y +)
+2 + 3     // No es una compound expression
+```
