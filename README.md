@@ -20,7 +20,9 @@ Dónovan Martín
 ## Version History
 
 * 0.1
-    * Inicialización del proyecto 07/07/2025
+   * Inicialización del proyecto 07/07/2025
+* 1.0
+   * Capítulo 1: 31/07/2025
 
 ## Reconocimientos
 
