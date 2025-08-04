@@ -33,3 +33,13 @@ Llamar a una función con su nombre y paréntesis: functionName().
 Funciones definidas dentro de otras funciones, **NO están permitidas**.
 
 *Placeholder names* como "foo", "bar", "baz", "goo" no tienen importancia para la demostración de un término.
+
+# Chapter 2.2
+
+## Return values
+
+Especificar si la función va a devolver un valor a la función de llamada con: return type y statement.
+
+- Tipo de return: void, int, double...
+- Sentencia de return.
+
