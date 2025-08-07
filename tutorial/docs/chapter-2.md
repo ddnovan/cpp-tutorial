@@ -118,3 +118,31 @@ int main()
     return 0;
 }
 ```
+# Chapter 2.3
+
+## Void functions
+
+Funciones que no retornan ningún valor.
+
+- Añadir: return; es redundante, pues la función *void* ya regresa de por si al *caller*.
+
+- No se pueden usar en expresiones que requieran un valor, por ejemplo:  std::cout.
+
+- Retornar un valor, produce un error de compilación:
+
+```javascript {.line-numbers}
+#include <iostream>
+
+void printA()
+{
+    std::cout << "A\n";
+}
+
+int main()
+{
+    // Return void can't be sent to std::cout
+    std::cout << printA() << '\n';
+
+    return 0;
+}
+```
