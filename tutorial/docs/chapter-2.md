@@ -146,3 +146,65 @@ int main()
     return 0;
 }
 ```
+
+# Chapter 2.4
+
+## Parámetros y argumentos
+
+Adelantarnos al tiempo con inputs/outputs genéricos usamos parámetros, argumentos y returns.
+
+Un **parámetro** es una variable usada en el header de la función, incializada con un valor dado por el caller de la función.
+
+```javascript {.line-numbers}
+// This function has two integer parameters, one named x, and one named y
+// The caller will supply the value of both x and y
+int add(int x, int y) {
+    return x + y;
+}
+```
+
+Un **argumento** es el valor pasado desde el caller a la función, cuando se realiza una llamada a función.
+
+```javascript {.line-numbers}
+add(2, 3); // 2 and 3 are the arguments passed to function add()
+```
+
+## Pass by value
+
+La llamada a una función hace que todos los parámetros (*value parameters*) sean creados como variables, y el valor de los argumentos son copiados con copy-initialization a cada parámetro concreto.
+
+## Return values como argumentos
+
+```javascript {.line-numbers}
+int main()
+{
+	int num { getValueFromUser() };
+	printDouble(num);
+	return 0;
+}
+```
+
+Cómo *num* sólo se utiliza una vez, podemos directamente devolver el valor, aunque su lectura sea más difícil. También se puede realizar de la primera forma.
+
+```javascript {.line-numbers}
+int main() {
+	printDouble(getValueFromUser());
+	return 0;
+}
+```
+
+## Unreferenced parameters
+
+No usar parámetros en el cuerpo de la función establece **unreferenced parameters**.
+
+## Unnamed parameters
+
+En una función, el nombre de un parámetro es opcional.
+
+Para casos en los que un parámetro deba existir pero no se use (ej: al quitar un parámetro para no tener que modificar cada llamada a la función), indicar con comentario el *unnamed parameter*.
+
+```javascript {.line-numbers}
+void doSomething(int /*count*/) {
+}
+```
+
