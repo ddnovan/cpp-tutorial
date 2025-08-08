@@ -1,5 +1,21 @@
 #include <iostream>
 
+int inputNumber() {
+
+	std::cout << "Input an integer, we'll double it: ";
+
+	int num{};
+	std::cin >> num;
+	return num;
+}
+
+// Write a function called doubleNumber() that takes one integer parameter. 
+// The function should return double the value of the parameter.
+int doubleNumber(int num) {
+	
+	return num*2;
+}
+
 int main()
 {
 	/*
@@ -29,8 +45,6 @@ int main()
     std::cin >> x >> y >> z;
     std::cout << "You entered " << x << ", " << y << ", " << "and " << z << "." << '\n';
 
-	*/
-
 	// Chapter 1.11
 	// Make a program that multiply by 2 and 3 the user input
 	std::cout << "Enter an integer: ";
@@ -38,6 +52,16 @@ int main()
 	std::cin >> num;
 	std::cout << "Double " << num << " is: " << num * 2 << '\n';
 	std::cout << "Triple " << num << " is: " << num * 3 << '\n';
+
+	*/
+
+	// Chapter 2.4
+	// Write a complete program that reads an integer from the user,
+	// doubles it using the doubleNumber() function you wrote in the previous quiz question,
+	// and then prints the doubled value out to the console.
+	int inputNum { inputNumber() };
+	int doubleInputNum = { doubleNumber(inputNum) };
+	std::cout << "Double the input number: " << doubleInputNum << '\n';
 
     return 0;
 }
