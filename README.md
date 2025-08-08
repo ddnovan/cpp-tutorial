@@ -29,3 +29,4 @@ Dónovan Martín
 * [LearnCPP](https://www.learncpp.com/#google_vignette)
 * [KarmaPulse](https://github.com/KarmaPulse/git-commit-message-conventions)
 * [edurbrito/markdown-notes](https://github.com/edurbrito/markdown-notes/blob/master/LICENSE.txt)
+* [tomas2p/fast-setup](https://github.com/tomas2p/fast-setup)
