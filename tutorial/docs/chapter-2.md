@@ -208,3 +208,110 @@ void doSomething(int /*count*/) {
 }
 ```
 
+# Chapter 2.5
+
+## Local variables
+
+Variables definidas en el cuerpo de una función son locales.
+
+*Parámetros* de la función también son consideradas variables locales.
+
+## Tiempo de vida de variables locales
+
+Se define entre la creación y destrucción de un objeto.
+
+```javascript {.line-numbers}
+int add(int x, int y) // x and y created and initialized here
+{
+    int z{ x + y };   // z created and initialized here
+
+    return z;
+} // z, y, and x destroyed here
+```
+El objeto destruido se vuelve **inválido** y si se usa, se produce *undefined behavior*.
+La memoria usada por el objeto será **deallocated** (liberada).
+
+## Local scope
+
+El *scope* de un identifier determina dónde puede verse y usarse.
+
+Está fuera del scope si no se puede ver ni usar.
+
+Un identifier de una variable local tiene un **scope local**. Usable desde su definición hasta el final de la función.
+
+## Dónde definir variables locales
+
+Buena práctica: definir variables locales lo más cercano a su primer uso, razonablemente.
+
+```javascript {.line-numbers}
+#include <iostream>
+
+int main()
+{
+	std::cout << "Enter an integer: ";
+	int x{};       // x defined here
+	std::cin >> x; // and used here
+
+	std::cout << "Enter another integer: ";
+	int y{};       // y defined here
+	std::cin >> y; // and used here
+
+	int sum{ x + y }; // sum can be initialized with intended value
+	std::cout << "The sum is: " << sum << '\n';
+
+	return 0;
+}
+```
+
+## Uso de parámetros vs variables locales
+
+Cuando una variable se necesita en una función:
+
+- Usar un parámetro cuando el caller pasará como argumento un valor inicial para la variable.
+
+- Usar variable local si no se cumple lo anterior.
+
+Ejemplo:
+```javascript {.line-numbers}
+#include <iostream>
+
+int getValueFromUser(int val) // val is a function parameter
+{
+    std::cout << "Enter a value: ";
+    std::cin >> val;
+    return val;
+}
+
+int main()
+{
+    int x {};
+    int num { getValueFromUser(x) }; // main must pass x as an argument
+
+    std::cout << "You entered " << num << '\n';
+
+    return 0;
+}
+```
+
+En este caso, esta forma es **correcta**:
+
+```javascript {.line-numbers}
+#include <iostream>
+
+int getValueFromUser()
+{
+    int val {}; // val is a local variable
+    std::cout << "Enter a value: ";
+    std::cin >> val;
+    return val;
+}
+
+int main()
+{
+    int num { getValueFromUser() }; // main does not need to pass anything
+
+    std::cout << "You entered " << num << '\n';
+
+    return 0;
+}
+```
