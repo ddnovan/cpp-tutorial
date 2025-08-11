@@ -315,3 +315,24 @@ int main()
     return 0;
 }
 ```
+
+# Chapter 2.6
+
+## ¿Por qué usar funciones?
+
+Beneficios:
+
+- Organización: reducir complejidad, al separar funcionalidades del *main*.
+- Reutilización: evitar código duplicado o repetido.
+- Testeo: facilitar el testing por funciones.
+- Extensibilidad: realizar cambios en una función produce efectos en cualquier llamada.
+- Abstracción: Usar una función sólo se basa en conocer su nombre, entradas, salidas y dónde vive.
+
+### Cuándo y cómo usar funciones
+
+Deben ser funciones:
+
+- Grupos de sentencias que aparezcan más de una vez en el programa (escribir numerosas veces de la misma forma).
+- Código con entradas y salidas bien definidas, por ejemplo un listado de items a ordenar (código que ordena es el body, lista sin ordenar como entrada, lista ordenada como salida).
+- Una función debe realizar una única tarea.
+- Cuando una función se vuelve muy larga, complicada o difícil de entender hay que aplicar **refactoring**, dividiendo en sub-funciones.
