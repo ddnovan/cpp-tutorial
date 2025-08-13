@@ -336,3 +336,58 @@ Deben ser funciones:
 - Código con entradas y salidas bien definidas, por ejemplo un listado de items a ordenar (código que ordena es el body, lista sin ordenar como entrada, lista ordenada como salida).
 - Una función debe realizar una única tarea.
 - Cuando una función se vuelve muy larga, complicada o difícil de entender hay que aplicar **refactoring**, dividiendo en sub-funciones.
+
+# Chapter 2.7
+
+Buena práctica: al resolver errores o warnings de compilación, resolver el primer problema y compilar de nuevo.
+
+En el caso en que el compilador no encuentre una función:
+
+## Reordenar las definiciones
+
+Establecer más arriba las funciones de las que se realizan o no llamadas, por ejemplo *main* como último.
+
+## Usar forward declaration
+
+Afrontar el problema de funciones que se llamen a sí mismo y dónde ubicarlas.
+
+**Forward declaration** indica al compilar la existencia de un *identifier* antes de definirlo.
+
+Usar *function declaration statement* terminada en ';'.
+
+```javascript {.line-numbers}
+int add(int x, int y); // function declaration includes return type, name, parameters, and semicolon.  No function body!
+int add(int, int); // valid function declaration too! but less readable.
+```
+
+Nos permite separar declaraciones en otro fichero.
+
+No definir una función (su *body*) produce:
+
+- Compilación y ejecución correcta, **si no hay llamada a la función**.
+- Compilación correcta pero linking incorrecto, **si hay llamada a la función**.
+
+## Declarations vs definitions
+
+### Declaración
+Existe un identifier con su tipo de información.
+
+```javascript {.line-numbers}
+int add(int x, int y); // tells the compiler about a function named "add" that takes two int parameters and returns an int.  No body!
+int x;                 // tells the compiler about an integer variable named x
+```
+
+### Definición
+
+Declaración que implementa o instancia el identifier.
+
+```javascript {.line-numbers}
+// because this function has a body, it is an implementation of function add()
+int add(int x, int y)
+{
+    int z{ x + y };   // instantiates variable z
+    return z;
+}
+
+int x;                // instantiates variable x
+```
