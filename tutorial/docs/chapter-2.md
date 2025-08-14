@@ -391,3 +391,11 @@ int add(int x, int y)
 
 int x;                // instantiates variable x
 ```
+
+## One definition rule (ODR)
+
+### Partes de la regla:
+
+1. En un fichero, cada función, variable o tipo en un scope determinado sólo tiene una definición.
+2. En un programa, cada función o variable en un scope determinado sólo tiene una definición.
+3. Tipos, plantillas, funciones y variables inline pueden duplicar definiciones en diferentes ficheros, si la definición es idéntica.
