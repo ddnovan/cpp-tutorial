@@ -406,7 +406,7 @@ int x;                // instantiates variable x
 
 Para programas grandes, se separan en ficheros para organización y reusabilidad.
 
-Está permitido usar *forawrd declaration* de la siguiente forma:
+Está permitido usar *forward declaration* de la siguiente forma:
 
 
 **main.cpp:**
@@ -430,3 +430,45 @@ int add(int x, int y)
 ```
 
 Como el compilador compila cada fichero de código individualmente, en caso de usar std::cout o std::cin en add.cpp habría que incluir la cabecera.
+
+# Chapter 2.9
+
+## Naming collisions
+
+C++ requiere que todos los *identifiers* no sean ambiguos.
+
+Si el compilador o linkador encuentra dos identifiers idénticos producirá un error denominado **naming collision** o **naming conflict**.
+
+### Scope regions
+
+Área de código fuente dónde cada identifier es considerado distinto de nombres declarados en otros scopes.
+
+El *body* de una función es un **scope region**.
+
+### Namespaces
+
+Otro tipo de *scope region* denominado **namespace scope** para desambiguar nombres definidos dentro con otros nombres idénticos de otros scopes.
+
+Sólo deben contener declaraciones y definiciones (variables y funciones), **NO sentencias ejecutables** fuera de una definición de una función.
+
+<u>**Global namespace or scope**</u>
+Nombres no definidos dentro de una clase, función o namespace.
+Ejemplo: **main()**.
+
+Se recomienda:
+
+- Identifiers declarados en *global scope* están en scope desde su declaración hasta *eof* (end of file).
+- Evitar definir variables en el *global scope*.
+
+## Explicit namespace qualifier std::
+
+Al usar un identifier definido dentro de un namespace fuera del global, hay que indicar al compilador que ese identifier vive dentro del namespace.
+
+De forma explícita: usar prefijo **std::**
+
+### Scope resolution operator '::'
+
+De la forma (::name -> se asume el *global namespace*): 
+**Identifier::name**
+
+Al incluir el prefijo, el identifier es una **qualified name**.
