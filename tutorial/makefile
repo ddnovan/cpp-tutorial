@@ -12,7 +12,7 @@ CXXFLAGS=-std=c++23 -Wall -Wextra -Werror -Wpedantic -Wshadow -Wnon-virtual-dtor
 # Nombre común y ejecutable
 TARGET=tutorial
 # Lista de archivos fuente
-SRCS=$(shell find src/ -name '*.cc')
+SRCS=$(shell find src/ -name '*.cpp')
 # Ruta de achivo compilado
 BUILD_DIR=build
 # Ruta del directorio
