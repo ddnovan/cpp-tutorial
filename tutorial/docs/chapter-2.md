@@ -399,3 +399,34 @@ int x;                // instantiates variable x
 1. En un fichero, cada función, variable o tipo en un scope determinado sólo tiene una definición.
 2. En un programa, cada función o variable en un scope determinado sólo tiene una definición.
 3. Tipos, plantillas, funciones y variables inline pueden duplicar definiciones en diferentes ficheros, si la definición es idéntica.
+
+# Chapter 2.8
+
+## Multiple code files
+
+Para programas grandes, se separan en ficheros para organización y reusabilidad.
+
+Está permitido usar *forawrd declaration* de la siguiente forma:
+
+
+**main.cpp:**
+```javascript {.line-numbers}
+#include <iostream>
+
+int add(int x, int y); // needed so main.cpp knows that add() is a function defined elsewhere
+
+int main()
+{
+    std::cout << "The sum of 3 and 4 is: " << add(3, 4) << '\n';
+    return 0;
+}
+```
+**add.cpp:**
+```javascript {.line-numbers}
+int add(int x, int y)
+{
+    return x + y;
+}
+```
+
+Como el compilador compila cada fichero de código individualmente, en caso de usar std::cout o std::cin en add.cpp habría que incluir la cabecera.
