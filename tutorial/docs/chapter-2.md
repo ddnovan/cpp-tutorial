@@ -472,3 +472,65 @@ De la forma (::name -> se asume el *global namespace*):
 **Identifier::name**
 
 Al incluir el prefijo, el identifier es una **qualified name**.
+
+# Chapter 2.10
+
+## Preprocessor
+
+Modifica el código del programa, quitando comentarios, asegurando que cada fichero termine en un *newline* y procesa las **directivas #include**.
+
+### Preprocessor directives
+
+Instrucciones que indican al preprocesador ciertas tareas para manipular texto.
+
+## Macro defines
+
+La directiva **#define** se usa para crear una **macro**, que es una regla para definir como el texto de entrada es convertido en texto de salida reemplazado.
+
+### Tipos de macros
+
+<u>Function-like macros:</u> No se recomiendan usar (ya existen las funciones)
+<u>Object-like macros:</u>
+```javascript {.line-numbers}
+#define IDENTIFIER
+#define IDENTIFIER substitution_text
+```
+Buena práctica: Evitar usar macros con texto sustituido a menos que no haya alternativas viables.
+
+## Conditional compilation
+
+*Conditional compilation* preprocessor directives permite especificar bajo qué condiciones algo compila o no.
+
+Directivas más comunes son: #ifdef, #ifndef y #endif.
+
+<u>**#ifdef:**</u> Comprueba si un identifier fue definido anteriormente con *#define*.
+
+<u>**#ifndef:**</u> Comprueba si un identifier NO fue definido anteriormente con *#define*.
+
+Recomendación: Usar directiva **# if 0** para excluir un bloque de código de ser compilado.
+
+```javascript {.line-numbers}
+#include <iostream>
+
+int main()
+{
+    std::cout << "Joe\n";
+
+#if 0 // Don't compile anything starting here
+    std::cout << "Bob\n";
+    /* Some
+     * multi-line
+     * comment here
+     */
+    std::cout << "Steve\n";
+#endif // until this point
+
+    return 0;
+}
+```
+
+## Scopes of #defines
+
+Las directivas se resuelven antes de compilar, de arriba a abajo en todo el fichero.
+
+Por tanto, aunque no se recomienda, no importa definir directivas dentro de funciones, funcionarán igual para identifiers en cualquier otro sitio.
