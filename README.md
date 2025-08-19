@@ -23,6 +23,8 @@ Dónovan Martín
    * Inicialización del proyecto 07/07/2025
 * 1.0
    * Capítulo 1: 31/07/2025
+* 2.0
+   * Capítulo 2: 19/08/2025
 
 ## Reconocimientos
 
