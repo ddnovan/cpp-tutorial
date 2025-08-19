@@ -613,3 +613,24 @@ Buena práctica:
 - Headers de librerías estándar (ej: #include <iostream>).
 
 Si hay varios en el mismo nivel, se ordena alfabéticamente.
+
+# Chapter 2.12
+
+## Header guards
+
+Son *conditional compilation directives* que evitan duplicar definiciones y causar error de compilación. De la forma:
+
+```javascript {.line-numbers}
+#ifndef SOME_UNIQUE_NAME_HERE
+#define SOME_UNIQUE_NAME_HERE
+
+// your declarations (and certain types of definitions) here
+
+#endif
+```
+
+Todos los *header files* deben tener **header guards**, con su nombre igual que el nombre del fichero completo:
+square.h tiene como nombre SQUARE_H.
+
+### #pragma once
+Forma moderna de *header guards* con la misma función, **se recomienda usar *header guards*** aún así, pues ciertos compiladores no implementan esta directiva de preprocesador #pragma.
