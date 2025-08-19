@@ -534,3 +534,82 @@ int main()
 Las directivas se resuelven antes de compilar, de arriba a abajo en todo el fichero.
 
 Por tanto, aunque no se recomienda, no importa definir directivas dentro de funciones, funcionarán igual para identifiers en cualquier otro sitio.
+
+# Chapter 2.11
+
+## Header files
+
+Con extensión **.h** propagan *forward declarations* hacia un fichero de código (.cpp).
+
+### Partes de *header files*
+
+1. **Header guard**.
+2. Contenido, sean *forward declarations* para todos los identifiers que queremos que otros ficheros vean.
+
+Si un *header file* se relaciona con un *code file*, deben usar el mismo nombre base (ej: add.cpp y add.h).
+
+add.h:
+
+```javascript {.line-numbers}
+// Header guard here
+// This is the content of the .h file, which is where the declarations go
+int add(int x, int y); // function prototype for add.h -- don't forget the semicolon!
+```
+main.cpp:
+```javascript {.line-numbers}
+#include "add.h" // Insert contents of add.h at this point.  Note use of double quotes here.
+#include <iostream>
+
+int main()
+{
+    std::cout << "The sum of 3 and 4 is " << add(3, 4) << '\n';
+    return 0;
+}
+```
+add.cpp:
+```javascript {.line-numbers}
+#include "add.h" // Insert contents of add.h at this point.  Note use of double quotes here.
+
+int add(int x, int y)
+{
+    return x + y;
+}
+```
+
+Buena práctica: evitar #include .cpp files.
+
+<u>Regla:</u> Usar "" (double quotes) para incluir *header files* que hayamos escrito nosotros o que estén en el dir actual. Usar <> (angled brackets) para incluir headers procedentes del compilador, OS, o librerías de terceros instaladas en el sistema.
+
+### Ruta del #include
+
+NO usar rutas relativas en el #include.
+```
+For gcc users
+
+Using g++, you can use the -I option to specify an alternate include directory:
+g++ -o main -I./source/includes main.cpp
+
+There is no space after the -I. For a full path (rather than a relative path), remove the . after -I.
+```
+```
+For VS Code users
+
+In your tasks.json configuration file, add a new line in the “Args” section:
+"-I./source/includes",
+
+There is no space after the -I. For a full path (rather than a relative path), remove the . after -I.
+```
+
+*Header files* pueden incluir otros headers, ej: #include <string_view>
+
+**Transitive includes** se refieren a *header files* adicionales que se incluyen implícitamente a partir de incluirse por otros *header files*.
+No se recomienda guiarnos por los *transitive includes*.
+
+Buena práctica:
+
+- Incluir el *header file* pareja del *code file* (ej: add.cpp con #include "add.h").
+- Otros headers del mismo proyecto (ej: #include "mymath.h").
+- Headers de librerías de terceros (ej: <boost/tuple/tuple.hpp>).
+- Headers de librerías estándar (ej: #include <iostream>).
+
+Si hay varios en el mismo nivel, se ordena alfabéticamente.
